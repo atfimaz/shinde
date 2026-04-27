@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Patient Monitor Dashboard</title>
+
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="chatbot.css" />
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://unpkg.com/mqtt/dist/mqtt.min.js"></script>
+  </head>
+
+  <body>
+    <div class="main">
+      <div class="monitor">
+        <h1>PATIENT MONITOR DASHBOARD</h1>
+
+        <div class="patient-info">
+          <span><b>Name:</b> <span id="pname"></span></span>
+          <span><b>ID:</b> <span id="pid"></span></span>
+          <span><b>Room:</b> <span id="room"></span></span>
+          <span><b>Assigned Doctor:</b> Dr.Asutosh</span>
+        </div>
+
+        <div class="dashboard">
+          <div class="table-section">
+            <table class="vital-table">
+              <thead>
+                <tr>
+                  <th>Heart Rate</th>
+                  <th>SpO₂</th>
+                  <th>Temp (°C)</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody id="tableBody">
+                <tr id="liveRow" class="live-row">
+                  <td id="hr">--</td>
+                  <td id="spo2">--</td>
+                  <td id="temp">--</td>
+                  <td id="status">--</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="graph-section">
+            <canvas id="hrChart"></canvas>
+            <canvas id="spo2Chart"></canvas>
+            <canvas id="tempChart"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CHATBOT -->
+    <div class="chatbot_popup" id="chatbot">
+      <div class="chat-header">
+        <h3>Assistant</h3>
+        <button id="close-chatbot">✕</button>
+      </div>
+
+      <div class="chat-body" id="chatBody">
+        <div class="message bot-message">
+          Hello 👋 I can help analyze patient vitals.
+        </div>
+      </div>
+
+      <div class="chat-footer">
+        <input class="message-input" type="text" placeholder="Ask..." />
+        <button id="send-message">Send</button>
+      </div>
+    </div>
+
+    <!-- FLOAT BUTTON (must be after chatbot) -->
+    <button id="open-chatbot" class="chat-open-btn">💬</button>
+
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-database-compat.js"></script>
+    <script src="script.js"></script>
+    <script src="chatbot.js"></script>
+  </body>
+</html>

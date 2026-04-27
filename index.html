@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+  <head>
+    <title>medical monitor</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+  </head>
+  <body>
+    <div class="main">
+      <div class="form">
+        <h1>CMR UNIVERSITY PUBLIC HOSPITAL</h1>
+
+        <form class="form_content" action="page2.html" method="get">
+          <input
+            type="text"
+            name="patient_name"
+            placeholder="ENTER PATIENT NAME"
+          />
+          <br /><br />
+
+          <input
+            type="number"
+            name="patient_id"
+            placeholder="ENTER PATIENT ID"
+            pattern="[0-9][0-9]*"
+            min="1"
+            required
+            inputmode="numeric"
+          />
+          <br /><br />
+
+          <select id="room" name="room">
+            <option value="" disabled selected>Select Room</option>
+            <option value="101">101</option>
+            <option value="102">102</option>
+            <option value="103">103</option>
+            <option value="104">104</option>
+            <option value="105">105</option>
+            <option value="106">106</option>
+            <option value="107">107</option>
+            <option value="108">108</option>
+          </select>
+          <br /><br />
+
+          <input class="button1" type="submit" value="CONTINUE" />
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
